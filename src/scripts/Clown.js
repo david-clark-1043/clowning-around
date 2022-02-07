@@ -1,11 +1,11 @@
-import { ServiceForm } from "./ServiceForm.js"
+import { RequestForm } from "./RequestForm.js"
 import { Requests } from "./Requests.js"
 
-export function ClownPage() {
+export const clownPage = () => {
     return `
         <h1>Buttons Clown Service</h1>
-        <section class="serviceForm">
-            ${ServiceForm()}
+        <section class="requestForm">
+            ${RequestForm()}
         </section>
 
         <section class="parties">
