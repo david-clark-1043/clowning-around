@@ -1,0 +1,33 @@
+{
+    "parties": [
+
+    ],
+    "clowns": [
+        {
+            "id": 1,
+            "name": "Steve"
+        },
+        {
+            "id": 2,
+            "name": "Tyler"
+        }
+    ],
+    "clownParties": [
+
+    ],
+    "parentParties": [
+
+    ],
+    "childParties": [
+
+    ],
+    "parents": [
+
+    ],
+    "children": [
+
+    ],
+    "parentsChild": [
+
+    ]
+}
