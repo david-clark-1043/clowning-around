@@ -56,26 +56,6 @@ export const fetchClownParties = () => {
                 )
 }
 
-export const fetchParentParties = () => {
-    return fetch(`${API}/parentParties`)
-            .then(response => response.json())
-            .then(
-                (response) => {
-                    applicationState.parentParties = response
-                }
-                )
-}
-
-export const fetchChildParties = () => {
-    return fetch(`${API}/childParties`)
-            .then(response => response.json())
-            .then(
-                (response) => {
-                    applicationState.childParties = response
-                }
-                )
-}
-
 export const fetchparentsChild = () => {
     return fetch(`${API}/parentsChild`)
             .then(response => response.json())
@@ -92,8 +72,6 @@ export const fetchData = () => {
     .then(() => fetchChildren())
     .then(() => fetchParties())
     .then(() => fetchClownParties())
-    .then(() => fetchParentParties())
-    .then(() => fetchChildParties())
     .then(() => fetchparentsChild())
 }
 
@@ -138,32 +116,6 @@ export const sendChild = (userChild) => {
         .then(response => response.json())
 }
 
-export const sendParentParty = (userParentParty) => {
-    const fetchOptions = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(userParentParty)
-    }
-
-    return fetch(`${API}/parentParties`, fetchOptions)
-        .then(response => response.json())
-}
-
-export const sendChildParty = (userChildParty) => {
-    const fetchOptions = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(userChildParty)
-    }
-
-    return fetch(`${API}/childParties`, fetchOptions)
-        .then(response => response.json())
-}
-
 export const sendParentChild = (userParentChild) => {
     const fetchOptions = {
         method: "POST",
@@ -179,12 +131,10 @@ export const sendParentChild = (userParentChild) => {
 
 const mainContainer = document.querySelector("#container")
 
-export const sendRequest = (party, parent, child, parentParty, childParty, parentChild) => {
+export const sendRequest = (party, parent, child, parentChild) => {
     return sendParty(party)
             .then(() => sendParent(parent))
             .then(() => sendChild(child))
-            .then(() => sendParentParty(parentParty))
-            .then(() => sendChildParty(childParty))
             .then(() => sendParentChild(parentChild))
             .then(() => {
                 mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
@@ -207,14 +157,6 @@ export const getChildren = () => {
 
 export const getClowns = () => {
     return applicationState.clowns.map(clown => ({...clown}))
-}
-
-export const getParentParties = () => {
-    return applicationState.parentParties.map(parentParty => ({...parentParty}))
-}
-
-export const getChildParties = () => {
-    return applicationState.childParties.map(childParty => ({...childParty}))
 }
 
 export const getParentsChild = () => {

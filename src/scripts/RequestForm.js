@@ -74,7 +74,9 @@ mainContainer.addEventListener("click", clickEvent => {
             numberOfChildren: numChildren,
             address: userAddress,
             length: userLength,
-            neededBy: userDate
+            neededBy: userDate,
+            parentId: newParentId,
+            childId: newChildId
         }
         const parentObj = {
             name: userParentName
@@ -84,24 +86,14 @@ mainContainer.addEventListener("click", clickEvent => {
             name: userChildName
         }
 
-        const parentPartyObj = {
-            parentId: newParentId,
-            partyId: newPartyId
-        }
-
         const parentChildObj = {
             parentId: newParentId,
             childId: newChildId
         }
 
-        const childPartyObj = {
-            childId: newChildId,
-            partyId: newPartyId
-        }
-
         // Send the data to the API for permanent storage
         // argument order should be
         // party, parent, child, parentParty, childParty, parentChild
-        sendRequest(partyObj, parentObj, childObj, parentPartyObj, childPartyObj, parentChildObj)
+        sendRequest(partyObj, parentObj, childObj, parentChildObj)
     }
 })
