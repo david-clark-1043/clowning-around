@@ -5,6 +5,8 @@
       "address": "15 S. North St.",
       "length": 2,
       "neededBy": "2022-02-11",
+      "parentId": 1,
+      "childId": 1,
       "id": 1
     },
     {
@@ -12,44 +14,22 @@
       "address": "1 Famous Ave.",
       "length": 4,
       "neededBy": "2022-02-09",
-      "id": 2
+      "id": 2,
+      "parentId": 2,
+      "childId": 2
     }
   ],
   "clowns": [
-      {
-          "id": 1,
-          "name": "Steve"
-      },
-      {
-          "id": 2,
-          "name": "Tyler"
-      }
+    {
+      "id": 1,
+      "name": "Steve"
+    },
+    {
+      "id": 2,
+      "name": "Tyler"
+    }
   ],
   "clownParties": [],
-  "parentParties": [
-    {
-      "parentId": 1,
-      "partyId": 1,
-      "id": 1
-    },
-    {
-      "parentId": 2,
-      "partyId": 2,
-      "id": 2
-    }
-  ],
-  "childParties": [
-    {
-      "childId": 1,
-      "partyId": 1,
-      "id": 1
-    },
-    {
-      "childId": 2,
-      "partyId": 2,
-      "id": 2
-    }
-  ],
   "parents": [
     {
       "name": "Tom Hanks",
