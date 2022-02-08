@@ -9,11 +9,11 @@ const convertRequestToListElement = (party) => {
     const parents = getParents()
     const children = getChildren()
 
-    const clownsList = clowns.map(
-        clown => {
-            return `<option value="${party.id}--${clown.id}">${clown.name}</option>`
-        }
-    ).join("") 
+    // const clownsList = clowns.map(
+    //     clown => {
+    //         return `<option value="${party.id}--${clown.id}">${clown.name}</option>`
+    //     }
+    // ).join("") 
 
     // find parent name
     const parentName = parents.find(parent => parent.id === party.parentId).name
@@ -21,6 +21,16 @@ const convertRequestToListElement = (party) => {
     // find child name
     const childName = children.find(child => child.id === party.childId).name
 
+//     to add:
+//     <select class="clowns" id="clowns">
+//     <option value="">Choose</option>
+//     ${clownsList}
+//      </select>
+        // <button class="request__delete"
+        //         id="party--${party.id}">
+        //     Delete
+        // </button>
+        
     return `
     <li class="completed__${party.completed}">
         <div>Parent: ${parentName}</div>
@@ -29,14 +39,8 @@ const convertRequestToListElement = (party) => {
         <div>Number of Children: ${party.numberOfChildren}</div>
         <div>Length: ${party.length}</div>
         <div>Date: ${party.neededBy}</div>
-        <select class="clowns" id="clowns">
-            <option value="">Choose</option>
-            ${clownsList}
-        </select>
-        <button class="request__delete"
-                id="party--${party.id}">
-            Delete
-        </button>
+
+
     </li>
 `
 }
