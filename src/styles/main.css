@@ -1,0 +1,22 @@
+.requestForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 30em;
+    margin-left: 2em;
+}
+
+.field {
+    display: flex;
+    justify-content: space-between;
+}
+
+.requestForm > * {
+    /* margin: .2em; */
+    padding: .4em;
+    border: 1px solid black;
+}
+
+#requestButton {
+    max-width: 50%;
+    margin: .4em;
+}
