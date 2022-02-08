@@ -2,6 +2,8 @@ const applicationState = [
 
 ]
 
+// get Data from databse.json
+
 const API = "http://localhost:8088"
 
 export const fetchParties = () => {
@@ -95,19 +97,126 @@ export const fetchData = () => {
     .then(() => fetchparentsChild())
 }
 
-export const sendRequest = (userServiceRequest) => {
+// Send data to database.json
+
+export const sendParty = (userParty) => {
     const fetchOptions = {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(userServiceRequest)
+        body: JSON.stringify(userParty)
     }
 
-
-    return fetch(`${API}/requests`, fetchOptions)
+    return fetch(`${API}/parties`, fetchOptions)
         .then(response => response.json())
-        .then(() => {
-            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
-        })
+}
+
+export const sendParent = (userParent) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userParent)
+    }
+
+    return fetch(`${API}/parents`, fetchOptions)
+        .then(response => response.json())
+}
+
+export const sendChild = (userChild) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userChild)
+    }
+
+    return fetch(`${API}/children`, fetchOptions)
+        .then(response => response.json())
+}
+
+export const sendParentParty = (userParentParty) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userParentParty)
+    }
+
+    return fetch(`${API}/parentParties`, fetchOptions)
+        .then(response => response.json())
+}
+
+export const sendChildParty = (userChildParty) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userChildParty)
+    }
+
+    return fetch(`${API}/childParties`, fetchOptions)
+        .then(response => response.json())
+}
+
+export const sendParentChild = (userParentChild) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userParentChild)
+    }
+
+    return fetch(`${API}/parentsChild`, fetchOptions)
+        .then(response => response.json())
+}
+
+const mainContainer = document.querySelector("#container")
+
+export const sendRequest = (party, parent, child, parentParty, childParty, parentChild) => {
+    return sendParty(party)
+            .then(() => sendParent(parent))
+            .then(() => sendChild(child))
+            .then(() => sendParentParty(parentParty))
+            .then(() => sendChildParty(childParty))
+            .then(() => sendParentChild(parentChild))
+            .then(() => {
+                mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+            })
+}
+
+
+// get Data from application state
+export const getParties = () => {
+    return applicationState.parties.map(party => ({...party}))
+}
+
+export const getParents = () => {
+    return applicationState.parents.map(parent => ({...parent}))
+}
+
+export const getChildren = () => {
+    return applicationState.children.map(child => ({...child}))
+}
+
+export const getClowns = () => {
+    return applicationState.clowns.map(clown => ({...clown}))
+}
+
+export const getParentParties = () => {
+    return applicationState.parentParties.map(parentParty => ({...parentParty}))
+}
+
+export const getChildParties = () => {
+    return applicationState.childParties.map(childParty => ({...childParty}))
+}
+
+export const getParentsChild = () => {
+    return applicationState.parentsChild.map(parentChild => ({...parentChild}))
 }

@@ -1,33 +1,85 @@
 {
-    "parties": [
-
-    ],
-    "clowns": [
-        {
-            "id": 1,
-            "name": "Steve"
-        },
-        {
-            "id": 2,
-            "name": "Tyler"
-        }
-    ],
-    "clownParties": [
-
-    ],
-    "parentParties": [
-
-    ],
-    "childParties": [
-
-    ],
-    "parents": [
-
-    ],
-    "children": [
-
-    ],
-    "parentsChild": [
-
-    ]
+  "parties": [
+    {
+      "numberOfChildren": 7,
+      "address": "15 S. North St.",
+      "length": 2,
+      "neededBy": "2022-02-11",
+      "id": 1
+    },
+    {
+      "numberOfChildren": 25,
+      "address": "1 Famous Ave.",
+      "length": 4,
+      "neededBy": "2022-02-09",
+      "id": 2
+    }
+  ],
+  "clowns": [
+      {
+          "id": 1,
+          "name": "Steve"
+      },
+      {
+          "id": 2,
+          "name": "Tyler"
+      }
+  ],
+  "clownParties": [],
+  "parentParties": [
+    {
+      "parentId": 1,
+      "partyId": 1,
+      "id": 1
+    },
+    {
+      "parentId": 2,
+      "partyId": 2,
+      "id": 2
+    }
+  ],
+  "childParties": [
+    {
+      "childId": 1,
+      "partyId": 1,
+      "id": 1
+    },
+    {
+      "childId": 2,
+      "partyId": 2,
+      "id": 2
+    }
+  ],
+  "parents": [
+    {
+      "name": "Tom Hanks",
+      "id": 1
+    },
+    {
+      "name": "Kanye West",
+      "id": 2
+    }
+  ],
+  "children": [
+    {
+      "name": "Chet Hanks",
+      "id": 1
+    },
+    {
+      "name": "North West",
+      "id": 2
+    }
+  ],
+  "parentsChild": [
+    {
+      "parentId": 1,
+      "childId": 1,
+      "id": 1
+    },
+    {
+      "parentId": 2,
+      "childId": 2,
+      "id": 2
+    }
+  ]
 }
